@@ -132,20 +132,6 @@ app.post('/login', passport.authenticate('local', {failureFlash: true, failureRe
     res.redirect('/home')
 })
 
-// app.get('/logout', async (req, res) => {
-//     await req.logout()
-//     req.flash('success', 'V-ati delogat cu succes')
-//     res.redirect('/magazin')
-// })
-// app
-// .route('/logout')
-// .get((req, res) => {
-//       req.logout(function(err) {
-//            if (err) { return next(err); }
-//        res.redirect('/');
-//   });
-// });
-
 app.get('/oferte', async (req, res) => {
     const mesaje = await Mesaj.find({})
     res.render("pages/oferte", {mesaje})
