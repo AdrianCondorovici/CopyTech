@@ -1,0 +1,83 @@
+<section>
+    <div class="contactUs">
+        <div class="formTitle">
+            <p>Contactează-ne!</p>
+        </div>
+        <div class="contactBody">
+            <div class="form">
+                <form action="/contact" method="POST">
+                    <div class="row">
+                        <div class="item">
+                            <label for="nume">Nume:</label>
+                            <input id="nume" name="mesaj[nume]" type="text" placeholder="Numele dvs." required>
+                        </div>
+                        <div class="item">
+                            <label for="prenume">Prenume:</label>
+                            <input id="prenume" name="mesaj[prenume]" type="text" placeholder="Prenumele dvs." required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="item">
+                            <label for="telefon">Telefon:</label>
+                            <input id="telefon" name="mesaj[telefon]" type="number" placeholder="Telefon" required>
+                        </div>
+                        <div class="item">
+                            <label for="email">Email:</label>
+                            <input id="email" name="mesaj[email]" type="email" placeholder="Email" required>
+                            <br>
+                        </div>
+                    </div>
+
+                    <label for="mesaj">Mesaj:</label>
+                    <textarea id="mesaj" name="mesaj[continut]" cols="30" rows="10" required></textarea>
+                    <br>
+
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+
+            <div class="contactCardContainer">
+                <div class="contactCard">
+                    <img src="../images/transparent/mail.png" alt="">
+                    <a href="">Contacteaza-ne</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mes-container">
+        <% for(let mesaj of mesaje) {%>
+            <% if(currentUser && mesaj.contAdmin.equals(currentUser._id)) {%>
+                <div class="mesajBox">
+                    <div class="left">
+                        <div class="data numeMesaj">
+                            <span class="grey">Nume:</span><span class="black"><%- mesaj.nume %></span>
+                        </div>
+                        <div class="data prenumeMesaj">
+                            <span class="grey">Prenume:</span><span class="black"><%- mesaj.prenume %></span>
+                        </div>
+                        <div class="data telefonMesaj">
+                            <span class="grey">Telefon:</span><span class="black"><%- mesaj.telefon %></span>
+                        </div>
+                        <div class="data emailMesaj">
+                            <span class="grey">Email:</span><span class="black"><%- mesaj.email %></span>
+                        </div>
+                        <div class="delete">
+                            <form action="/contact/<%=mesaj._id%>?_method=DELETE" method="POST">
+                                <button>Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="continutMesaj">
+                            <span class="black"><%- mesaj.continut %></span>
+                        </div>
+                    </div>
+
+
+                </div>
+                <% } %>
+                <% } %>
+    </div>
+</section>

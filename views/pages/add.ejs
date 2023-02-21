@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="../javascripts/home.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/addmod.css">
+    <title>Adaugare</title>
+</head>
+<body>
+    <%- include('../partials/nav'); -%>
+
+    <div class="produsForm">
+        <div class="form">
+            <form action="/add" method="POST">
+                    <div class="item">
+                        <label for="nume">Nume produs:</label>
+                        <input id="nume" name="item[nume]" type="text" placeholder="Nume produs..." required>
+                    </div>
+                    <div class="item">
+                        <label for="pret">Pret:</label>
+                        <input id="pret" name="item[pret]" type="number" placeholder="Pret produs..." required>
+                    </div>
+                    <div class="item">
+                        <label for="stoc">Stoc:</label>
+                        <input id="stoc" name="item[stoc]" type="number" placeholder="Stoc..." required>
+                    </div>
+                    <div class="item">
+                        <label for="clasa">Clasa:</label>
+                        <input id="clasa" name="item[clasa]" type="text" placeholder="Clasa..." required>
+                    </div>
+                    <div class="item">
+                        <label for="Poze">Poze:</label>
+                        <input id="Poze" name="item[poza]" type="text" placeholder="Poze..." required>
+                    </div>
+
+                <label for="descriere">Descriere:</label>
+                <textarea id="descriere" name="item[descriere]" cols="30" rows="10" required></textarea>
+                <br>
+
+                <input type="submit" value="Adauga">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

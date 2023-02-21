@@ -1,0 +1,261 @@
+
+.formTitle{
+    font-family: 'Garet', sans-serif;
+    margin: auto;
+    font-size: 3rem;
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+.contactUs{
+    font-family: 'Garet', sans-serif;
+    margin: auto;
+    margin-top: 5%;
+    width: 90%;
+}
+
+.contactUs label {
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+.contactBody {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form{
+    width: 70%;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    width: 95%;
+    padding-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.row:nth-of-type(2){
+    padding-top: 1%;
+}
+
+.row input {
+    height: 25px;
+    padding: 4px 5px;
+    border: 2px solid #BC2C1A;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    width: 46%;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #BC2C1A;
+    border-radius: 12px;
+    background-color: white;
+    resize: none;
+}
+
+.contactCardContainer{
+    width: 30%;
+}
+
+.contactCard{
+    margin: auto;
+    margin-top: 15%;
+    display: flex;
+    background-color: #BC2C1A;
+    flex-direction: column;
+    height: 20vw;
+    width: 20vw;
+    border-radius: 25px;
+}
+
+.contactCard img{
+    margin: auto;
+    height: 12vw;
+}
+
+.contactCard a{
+    color: white;
+    margin: auto;
+    text-decoration: none;
+    font-family: 'Garet', sans-serif;
+    font-size: 2rem;
+}
+
+input[type=submit] {
+    width: 80px;
+    background-color: #BC2C1A;
+    border: none;
+    color: white;
+    text-decoration: none;
+    padding: 6px;
+    margin: 4px 0px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.mes-container{
+    font-family: 'Garet', sans-serif;
+    margin: 0% 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1%;
+    left: 0;
+}
+
+.mesajBox {
+    position: relative;
+    height: 45vh;
+    margin-top: 5%;
+    border-radius: 25px;
+    text-align: center;
+    /* box-shadow: 0px 2px 10px black; */
+    border: 2px solid #BC2C1A;
+    overflow: hidden;
+    display: flex;
+}
+
+.left{
+    padding-top: 5%;
+    width: 40%;
+    text-align: left;
+    border-right: 1px solid black;
+}
+.right{
+    padding-top: 5%;
+    text-align: left;
+    width: 60%;
+}
+.data, .continutMesaj{
+    margin: 0% 5%;
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column;
+}
+.continutMesaj{
+    height: 40vh;
+    overflow-y: scroll;
+}
+.grey{
+    width: 35%;
+    color: grey
+}
+.black{
+    width: 65;
+}
+
+.delete button{
+    color: white;
+    background-color: #BC2C1A;
+    border-radius: 5px;
+    padding: 6px 8px;
+    margin-left: 80%;
+    transition: 200ms;
+    border: 0px;
+    width: 60px;
+}
+
+.delete{
+    z-index: 2;
+    position: absolute;
+    margin: 0px;
+    bottom: 25px;
+}
+
+@media only screen and (max-width: 1600px) and (min-width: 1200px){
+    .contactCard{
+        margin-top: 25%;
+    }
+    .mes-container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media only screen and (max-width: 1200px) and (min-width: 1000px){
+    .contactCard{
+        margin-top: 25%;
+    }
+
+    .contactCard img{
+        margin: auto;
+        margin-bottom: 0px;
+        height: 12vw;
+    }
+
+    .contactCard a{
+        margin-top: 0px;
+        font-size: 1.5rem;
+    }
+    .mes-container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media only screen and (max-width: 1000px) and (min-width: 500px){
+    .contactCardContainer{
+        display: none;
+    }
+    .form{
+        width: 100%;
+    }
+    .mes-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media only screen and (max-width: 500px){
+    .formTitle{
+        font-size: 2rem;
+    }
+    .contactCardContainer{
+        display: none;
+    }
+    .form{
+        width: 100%;
+    }
+    .row{
+        flex-direction: column;
+    }
+    .item{
+        width: 100%;
+    }
+    .mesajBox {
+        flex-direction: column;
+    }
+    .delete{
+        z-index: 2;
+        position: absolute;
+        margin: 0px;
+        top: 25px;
+        right: 75px;
+    }
+    .left, .right{
+        width: 100%;
+    }
+    .left{
+        border-right: 0px solid black;
+        border-bottom: 1px solid black;
+        padding-bottom: 5%;
+    }
+    .continutMesaj{
+        height: 18vh;
+        overflow-y: scroll;
+    }
+    .mes-container{
+        grid-template-columns: 1fr;
+    }
+}

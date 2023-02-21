@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="../javascripts/home.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/addmod.css">
+    <title>Modificare</title>
+</head>
+<body>
+    <%- include('../partials/nav'); -%>
+
+    <div class="produsForm">
+        <div class="form">
+            <form action="/mod/<%=item._id%>?_method=PUT" method="POST">
+                    <div class="item">
+                        <label for="nume">Nume produs :</label>
+                        <input id="nume" name="item[nume]" type="text" placeholder="Nume produs..." value="<%=item.nume%>" required>
+                    </div>
+                    <div class="item">
+                        <label for="pret">Pret:</label>
+                        <input id="pret" name="item[pret]" type="number" placeholder="Pret produs..." value="<%=item.pret%>" required>
+                    </div>
+                    <div class="item">
+                        <label for="stoc">Stoc:</label>
+                        <input id="stoc" name="item[stoc]" type="number" placeholder="Stoc..." value="<%=item.stoc%>" required>
+                    </div>
+
+                <label for="descriere">Descriere:</label>
+                <textarea id="descriere" name="item[descriere]" cols="30" rows="10" required><%=item.descriere%></textarea>
+                <br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

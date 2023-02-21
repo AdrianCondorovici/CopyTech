@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../javascripts/home.js" defer></script>
+    <script src="../../javascripts/shop.js" defer></script>
+    <link href="https://fonts.cdnfonts.com/css/garet" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/alatsi-2" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/magazin.css">
+    <title>Magazin</title>
+</head>
+
+<body>
+    <%- include('../partials/nav'); -%>
+
+        <div class="slogan">
+            <div class="blank">
+            </div>
+            <div class="intro">
+                <p><span class="numef"><span class="red">M</span>agazinul <span class="red">T</span>au</span></p>
+            </div>
+        </div>
+
+        <section>
+            <div class="sections">
+                <div class="row">
+                    <a class="column" href="/magazin/piese">
+                        <img src="../../images/shop/parts.jpg" alt="">
+                        <p>Piese de schimb</p>
+                    </a>
+                    <div class="column middle">
+                        <p>Online Shop</p>
+                    </div>
+                    <a class="column" href="/magazin/birou">
+                        <img src="../../images/shop/printer.jpg" alt="">
+                        <p>Aparatura de birou</p>
+                    </a>
+                </div>
+                <div class="row">
+                    <a class="column" href="/magazin/consumabile">
+                        <img src="../../images/shop/ink.jpg" alt="">
+                        <p>Consumabile</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+                <form action="/magazin/cauta" method="POST">
+                    <div class="searchBar">
+                        <input type="text" name="termen" id="" placeholder="Cautare...">
+                    </div>
+                </form>
+                <% if(success && success.length) {%>
+                    <div class="alerta">
+                        <p>
+                            <%= success %>
+                        </p>
+                    </div>
+                    <% } %>
+                        <% if(error && error.length) {%>
+                            <div class="alerta">
+                                <p>
+                                    <%= error %>
+                                </p>
+                            </div>
+                            <% } %>
+                                <div class="items">
+                                    <% for(let item of items) {%>
+                                        <% if (typeof search != "undefined") {%>
+                            <% if (item.nume.toUpperCase().includes(search.toUpperCase())){%>
+                            <div class="itemBox">
+                                <div class="itemTitle">
+                                    <p><%- item.nume %></p>
+                                </div>
+                                <div class="itemPrice">
+                                    <p><%- item.pret %> RON</p>
+                                </div>
+                                <div class="itemStoc">
+                                    <p><%- item.stoc %> buc.</p>
+                                </div>
+                                                <img class="itemImage"src="<%- item.poza %>" alt="">
+                                                <div class="itemDescription">
+                                                    <p><%- item.descriere %></p>
+                                                </div>
+                                                <% if(currentUser && item.contAdmin.equals(currentUser._id)) {%>
+                                                    <div class="edit">
+                                                        <form action="/mod/<%=item._id%>" method="GET">
+                                                            <button>Edit</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="delete">
+                                                        <form action="/mod/<%=item._id%>?_method=DELETE" method="POSt">
+                                                            <button>Delete</button>
+                                                        </form>
+                                                    </div>
+                                                    <% } else { %>
+                                                        <div class="cart">
+                                                                <button class="shop-item-button" type="button"></button>
+                                                        </div>
+                                                        <% } %>
+                                </div>
+                                <% } %>
+                                        <% } else {%>
+                                            <div class="itemBox">
+                                                <div class="itemTitle">
+                                                    <p><%- item.nume %></p>
+                                                </div>
+                                                <div class="itemPrice">
+                                                    <p><%- item.pret %> RON</p>
+                                                </div>
+                                                <div class="itemStoc">
+                                                    <p><%- item.stoc %> buc.</p>
+                                                </div>
+                                                <img class="itemImage"src="<%- item.poza %>" alt="">
+                                                    <div class="itemDescription">
+                                                        <p><%- item.descriere %></p>
+                                                    </div>
+                                                    <% if(currentUser && item.contAdmin.equals(currentUser._id)) {%>
+                                                        <div class="edit">
+                                                            <form action="/mod/<%=item._id%>" method="GET">
+                                                                <button>Edit</button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="delete">
+                                                            <form action="/mod/<%=item._id%>?_method=DELETE"
+                                                                method="POST">
+                                                                <button>Delete</button>
+                                                            </form>
+                                                        </div>
+                                                        <% } else { %>
+                                                            <div class="cart">
+                                                                    <button class="shop-item-button" type="button"></button>
+                                                            </div>
+                                                            <% } %>
+                                            </div>
+                                            <% } %>
+                                                <% } %>
+                                                    </div>
+        </section>
+
+        <section>
+            <div class="cartBox">
+                <div class="shop-title">
+                    <div class="produs"><p>Produs:</p></div>
+                    <div class="pret"><p>Pret:</p></div>
+                    <div class="cantitate"><p>Cantitate:</p></div>
+                </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-sum">
+                <div class="cart-total">
+                    <strong class="total-title">Total</strong>
+                    <span class="cart-total-price">0 RON</span>
+                </div>
+                <button class="cumpara" type="button">Cumpara</button>
+            </div>
+                
+        </div>
+        </section>
+
+        <%- include('../partials/credits') %>
+</body>
+
+</html>

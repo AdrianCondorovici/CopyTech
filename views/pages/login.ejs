@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="../javascripts/home.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/addmod.css">
+    <title>Adaugare/Modificare</title>
+</head>
+<body>
+    <%- include('../partials/nav'); -%>
+
+    <div class="produsForm">
+        <div class="form">
+            <form action="/login" method="POST">
+                    <div class="item">
+                        <label for="nume">Nume administrator:</label>
+                        <input id="nume" name="username" type="text" placeholder="Nume administrator...">
+                    </div>
+                    <div class="item">
+                        <label for="parola">Parola:</label>
+                        <input id="parola" name="password" type="password" placeholder="Parola...">
+                    </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
